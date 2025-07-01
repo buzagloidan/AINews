@@ -30,7 +30,7 @@ Visit: **https://news.buzagloidan.com/**
 
 - **Frontend**: Pure HTML5, CSS3, Vanilla JavaScript
 - **API**: Supabase REST API (read-only public access)
-- **Hosting**: GitHub Pages
+- **Hosting**: Railway
 - **Database**: Supabase PostgreSQL
 - **Webhooks**: Serverless Edge Functions for Telegram integration
 
