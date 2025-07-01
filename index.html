@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Newsletter | Powered by GPT-4</title>
+    <meta name="description" content="Latest AI news updates in Hebrew and English. Real-time updates from industry sources.">
+    <meta name="keywords" content="AI news, artificial intelligence, technology, updates, Hebrew, English, newsletter">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        /* Modern, Minimalistic & White Design */
+        :root {
+            --background-color: #f8f9fa;
+            --card-background: #ffffff;
+            --text-color: #212529;
+            --subtle-text-color: #6c757d;
+            --border-color: #dee2e6;
+            --accent-color: #007bff;
+            --shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            --border-radius: 8px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background: var(--background-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            padding: 20px;
+            overflow-x: hidden;
+            text-align: center;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* Header */
+        .header {
+            padding: 30px 20px;
+            margin-bottom: 20px;
+        }
+
+        .header h1 {
+            font-size: 2.8rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            letter-spacing: -1px;
+        }
+
+        .header .subtitle {
+            font-size: 1.1rem;
+            color: var(--subtle-text-color);
+            max-width: 500px;
+            margin: 0 auto;
+            line-height: 1.5;
+        }
+
+        /* Language Toggle */
+        .language-toggle-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 30px;
+            gap: 10px;
+            font-size: 0.9rem;
+            color: var(--subtle-text-color);
+        }
+
+        .switch {
+            position: relative;
+            display: inline-block;
+            width: 50px;
+            height: 26px;
+        }
+
+        .switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #ccc;
+            transition: .4s;
+            border-radius: 34px;
+        }
+
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 18px;
+            width: 18px;
+            left: 4px;
+            bottom: 4px;
+            background-color: white;
+            transition: .4s;
+            border-radius: 50%;
+        }
+
+        input:checked+.slider {
+            background-color: var(--accent-color);
+        }
+
+        input:checked+.slider:before {
+            transform: translateX(24px);
+        }
+
+        /* Social Links */
+        .social-links {
+            margin-bottom: 40px;
+        }
+
+        .whatsapp-link a {
+            color: var(--subtle-text-color);
+            text-decoration: none;
+            padding: 8px 12px;
+            border-radius: var(--border-radius);
+            transition: all 0.2s ease-in-out;
+            font-weight: 500;
+        }
+
+        .whatsapp-link a:hover {
+            background: #e9ecef;
+            color: var(--text-color);
+        }
+
+        .persistent-social {
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+        }
+
+        .persistent-social a {
+            color: var(--subtle-text-color);
+            transition: color 0.2s ease-in-out;
+        }
+
+        .persistent-social a:hover {
+            color: var(--text-color);
+        }
+
+        .persistent-social svg {
+            width: 24px;
+            height: 24px;
+        }
+
+        /* News Sections */
+        .news-section {
+            margin-bottom: 40px;
+            text-align: left;
+        }
+
+        .hebrew-section {
+            text-align: right;
+        }
+
+        .section-header {
+            padding: 0 10px 15px 10px;
+            border-bottom: 1px solid var(--border-color);
+            margin-bottom: 20px;
+        }
+
+        .section-title {
+            font-size: 1.8rem;
+            font-weight: 700;
+        }
+
+        .news-container {
+            padding: 10px 0;
+            max-height: 70vh;
+            overflow-y: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        /* News Items */
+        .news-item {
+            background: var(--card-background);
+            border: 1px solid var(--border-color);
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            padding: 20px;
+            margin-bottom: 20px;
+            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+        }
+
+        .news-item:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.07);
+        }
+
+        .news-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+            color: var(--text-color);
+        }
+
+        .news-content {
+            color: var(--subtle-text-color);
+            margin-bottom: 15px;
+            line-height: 1.7;
+        }
+
+        .news-meta {
+            font-size: 0.85rem;
+            color: #adb5bd;
+            border-top: 1px solid var(--border-color);
+            padding-top: 15px;
+            font-family: monospace;
+        }
+        
+        .hidden {
+            display: none;
+        }
+
+        /* Loading & Error States */
+        .loading, .error {
+            text-align: center;
+            padding: 50px;
+            color: var(--subtle-text-color);
+            font-size: 1.1rem;
+        }
+
+        .error {
+            background: #fff5f5;
+            color: #c53030;
+            border: 1px solid #f1afaf;
+            border-radius: var(--border-radius);
+            margin: 20px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            body {
+                padding: 15px;
+            }
+            .header h1 {
+                font-size: 2.2rem;
+            }
+            .social-links a {
+                display: block;
+                margin: 8px 0;
+            }
+            .news-container {
+                max-height: 60vh;
+            }
+        }
+
+        /* Grid Layout for Desktop */
+        @media (min-width: 1024px) {
+            .news-grid {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 40px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <h1>AI Newsletter</h1>
+            <div class="subtitle">Want exclusive API access for AI news updates?<br><strong>Let's connect and unlock the data!</strong></div>
+        </div>
+
+        <!-- Language Toggle -->
+        <div class="language-toggle-container">
+            <span>English</span>
+            <label class="switch">
+                <input type="checkbox" id="languageToggle">
+                <span class="slider"></span>
+            </label>
+            <span>עברית</span>
+        </div>
+
+        <!-- Social Links -->
+        <div class="social-links">
+            <div id="whatsapp-en" class="whatsapp-link">
+                <a href="https://t.co/l6KRQJl3aC" target="_blank">Join on WhatsApp</a>
+            </div>
+            <div id="whatsapp-he" class="whatsapp-link hidden">
+                <a href="https://www.whatsapp.com/channel/0029Vb9SduO9MF8xSjlfrt24" target="_blank">הצטרפו בוואטסאפ</a>
+            </div>
+            <div class="persistent-social">
+                <a href="https://www.linkedin.com/in/buzagloidan/" target="_blank" title="LinkedIn Profile">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M20.5 2h-17A1.5 1.5 0 0 0 2 3.5v17A1.5 1.5 0 0 0 3.5 22h17a1.5 1.5 0 0 0 1.5-1.5v-17A1.5 1.5 0 0 0 20.5 2ZM8 19H5v-9h3zM6.5 8.25A1.75 1.75 0 1 1 8.25 6.5 1.75 1.75 0 0 1 6.5 8.25ZM19 19h-3v-4.75c0-1.4-.5-2.25-1.5-2.25S13 12.8 13 14.25V19h-3v-9h3v1.5c.5-.75 1.5-1.5 2.5-1.5s3 1.5 3 4.5z"></path></svg>
+                </a>
+                <a href="https://x.com/buzagloidan" target="_blank" title="X Profile">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"></path></svg>
+                </a>
+            </div>
+        </div>
+
+            <!-- English News -->
+        <div id="english-view">
+            <div class="news-section">
+                <div class="section-header">
+                    <div class="section-title">Artificial Intelligence News</div>
+                </div>
+                <div class="news-container" id="englishNews">
+                    <div class="loading">Loading English news...</div>
+                </div>
+                </div>
+            </div>
+
+        <!-- Hebrew News -->
+        <div id="hebrew-view" class="hidden">
+            <div class="news-section hebrew-section">
+                <div class="section-header">
+                    <div class="section-title">חדשות בינה מלאכותית בעברית</div>
+                </div>
+                <div class="news-container" id="hebrewNews">
+                    <div class="loading">טוען חדשות בעברית...</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // API Configuration is now handled by the backend.
+
+        let hebrewCount = 0;
+        let englishCount = 0;
+
+        // Utility Functions
+        function formatDate(dateString) {
+            const date = new Date(dateString);
+            const now = new Date();
+            const diffMs = now - date;
+            const diffHours = Math.floor(diffMs / (1000 * 60 * 60));
+            const diffMins = Math.floor(diffMs / (1000 * 60));
+
+            if (diffMins < 1) return 'Just now';
+            if (diffMins < 60) return `${diffMins}m ago`;
+            if (diffHours < 24) return `${diffHours}h ago`;
+            
+            return date.toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
+        }
+
+        function createNewsHTML(newsItems) {
+            if (!newsItems || newsItems.length === 0) {
+                return '<div class="error">No news items found.</div>';
+            }
+
+            return newsItems.map((item) => `
+                <div class="news-item">
+                    <div class="news-title">${item.title}</div>
+                    <div class="news-content">${item.content}</div>
+                    <div class="news-meta">
+                        <span>${formatDate(item.created_at)}</span>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function showError(containerId, message) {
+            document.getElementById(containerId).innerHTML = `<div class="error">❌ ${message}</div>`;
+        }
+
+        // API Functions
+        async function fetchNews(lang, limit = 10) {
+            try {
+                const url = `/api/news/${lang}?limit=${limit}`;
+                const response = await fetch(url);
+                if (!response.ok) throw new Error(`HTTP ${response.status}`);
+                return await response.json();
+            } catch (error) {
+                console.error(`Error fetching ${lang} news:`, error);
+                return null;
+            }
+        }
+
+        // Load Functions
+        async function loadHebrewNews() {
+            const container = document.getElementById('hebrewNews');
+            try {
+                const newsItems = await fetchNews('he', 10);
+                if (newsItems) {
+                    container.innerHTML = createNewsHTML(newsItems);
+                    hebrewCount = newsItems.length;
+                    console.log(`✅ Loaded ${hebrewCount} Hebrew news items`);
+                } else {
+                    showError('hebrewNews', 'Failed to load Hebrew news');
+                }
+            } catch (error) {
+                showError('hebrewNews', 'Error loading Hebrew news');
+            }
+        }
+
+        async function loadEnglishNews() {
+            const container = document.getElementById('englishNews');
+            try {
+                const newsItems = await fetchNews('en', 10);
+                if (newsItems) {
+                    container.innerHTML = createNewsHTML(newsItems);
+                    englishCount = newsItems.length;
+                    console.log(`✅ Loaded ${englishCount} English news items`);
+                } else {
+                    showError('englishNews', 'Failed to load English news');
+                }
+            } catch (error) {
+                showError('englishNews', 'Error loading English news');
+            }
+        }
+
+        // Language Toggle Logic
+        function setupLanguageToggle() {
+            const toggle = document.getElementById('languageToggle');
+            const englishView = document.getElementById('english-view');
+            const hebrewView = document.getElementById('hebrew-view');
+            const whatsappEn = document.getElementById('whatsapp-en');
+            const whatsappHe = document.getElementById('whatsapp-he');
+
+            // Load Hebrew news only when it's first switched to
+            let hebrewLoaded = false;
+
+            toggle.addEventListener('change', function() {
+                if (this.checked) { // Hebrew selected
+                    englishView.classList.add('hidden');
+                    hebrewView.classList.remove('hidden');
+                    whatsappEn.classList.add('hidden');
+                    whatsappHe.classList.remove('hidden');
+                    if (!hebrewLoaded) {
+                        loadHebrewNews();
+                        hebrewLoaded = true;
+                    }
+                } else { // English selected
+                    englishView.classList.remove('hidden');
+                    hebrewView.classList.add('hidden');
+                    whatsappEn.classList.remove('hidden');
+                    whatsappHe.classList.add('hidden');
+                }
+            });
+        }
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', () => {
+            console.log('🚀 AI Newsletter Initialized');
+            loadEnglishNews(); // Load English news by default
+            setupLanguageToggle();
+
+            // Manual refresh trigger
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'F5' || (e.ctrlKey && e.key === 'r')) {
+                e.preventDefault();
+                console.log('🔄 Manual refresh triggered');
+                    const isHebrew = document.getElementById('languageToggle').checked;
+                    if(isHebrew) {
+                        loadHebrewNews();
+                    } else {
+                        loadEnglishNews();
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html> 
