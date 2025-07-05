@@ -71,7 +71,8 @@ app.get('/rss.xml', async (req, res) => {
         response.data.forEach(item => {
             feed.item({
                 description: item.content || item.title,
-                date: new Date(item.created_at)
+                date: new Date(item.created_at),
+                guid: `ainews-en-${item.created_at}`
             });
         });
 
@@ -123,7 +124,8 @@ app.get('/rss-:lang.xml', async (req, res) => {
         response.data.forEach(item => {
             feed.item({
                 description: item.content || item.title,
-                date: new Date(item.created_at)
+                date: new Date(item.created_at),
+                guid: `ainews-${lang}-${item.created_at}`
             });
         });
 
