@@ -1,4 +1,4 @@
-﻿#  AI News Hub
+﻿#  AI Newsletter
 
 > **Stay ahead of the AI revolution with real-time news updates**
 
