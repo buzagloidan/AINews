@@ -1,8 +1,19 @@
 ﻿#  AI News Hub
 
-> **Minimalistic website for real-time AI news updates in Hebrew & English**
+> **Stay ahead of the AI revolution with real-time news updates**
 
-A clean, professional interface that displays the latest AI news in Hebrew and English, with automatic refresh functionality and proper RTL support for Hebrew content.
+## 🤖 **About This Repository**
+
+AI News Hub is a modern, lightning-fast news aggregation platform that delivers the latest artificial intelligence breakthroughs directly to your RSS reader. Built for developers, researchers, and AI enthusiasts who demand instant access to cutting-edge developments.
+
+**Why AI News Hub?**
+- **Zero noise, maximum signal** - Curated AI news without the fluff
+- **RSS-first approach** - Subscribe once, stay updated forever
+- **Real-time pipeline** - News appears within minutes of publication
+- **Developer-friendly** - Clean codebase, easy to fork and customize
+- **Production-ready** - Hosted on Railway with enterprise-grade reliability
+
+Perfect for staying competitive in the fast-moving AI landscape.
 
 ##  **Live Website**
 
