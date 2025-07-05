@@ -70,12 +70,7 @@ app.get('/rss.xml', async (req, res) => {
         // Add items to RSS feed
         response.data.forEach(item => {
             feed.item({
-                title: item.title,
                 description: item.content || item.title,
-                url: `https://news.buzagloidan.com/#${item.id}`,
-                guid: `ainews-en-${item.id}`,
-                categories: ['AI News', 'English'],
-                author: 'AI Newsletter',
                 date: new Date(item.created_at)
             });
         });
@@ -127,12 +122,7 @@ app.get('/rss-:lang.xml', async (req, res) => {
         // Add items to RSS feed
         response.data.forEach(item => {
             feed.item({
-                title: item.title,
                 description: item.content || item.title,
-                url: `https://news.buzagloidan.com/#${item.id}`,
-                guid: `ainews-${lang}-${item.id}`,
-                categories: ['AI News', languageName],
-                author: 'AI Newsletter',
                 date: new Date(item.created_at)
             });
         });
