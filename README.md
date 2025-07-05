@@ -4,9 +4,9 @@
 
 ## 🤖 **About This Repository**
 
-AI News Hub is a modern, lightning-fast news aggregation platform that delivers the latest artificial intelligence breakthroughs directly to your RSS reader. Built for developers, researchers, and AI enthusiasts who demand instant access to cutting-edge developments.
+AI Newsletter is a modern, lightning-fast news aggregation platform that delivers the latest artificial intelligence breakthroughs directly to your RSS reader. Built for developers, researchers, and AI enthusiasts who demand instant access to cutting-edge developments.
 
-**Why AI News Hub?**
+**Why AI Newsletter?**
 - **Zero noise, maximum signal** - Curated AI news without the fluff
 - **RSS-first approach** - Subscribe once, stay updated forever
 - **Real-time pipeline** - News appears within minutes of publication

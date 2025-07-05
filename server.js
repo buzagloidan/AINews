@@ -48,15 +48,15 @@ app.get('/rss.xml', async (req, res) => {
     try {
         // Create RSS feed for English content
         const feed = new RSS({
-            title: 'AI News Hub - English AI Updates',
+            title: 'AI Newsletter - English AI Updates',
             description: 'Latest AI news updates in English from industry sources',
             feed_url: 'https://news.buzagloidan.com/rss.xml',
             site_url: 'https://news.buzagloidan.com',
             image_url: 'https://news.buzagloidan.com/favicon.png',
             docs: 'https://news.buzagloidan.com',
-            managingEditor: 'Idan Buzaglo',
-            webMaster: 'Idan Buzaglo',
-            copyright: `${new Date().getFullYear()} AI News Hub`,
+            managingEditor: 'news@buzagloidan.com (Idan Buzaglo)',
+            webMaster: 'news@buzagloidan.com (Idan Buzaglo)',
+            copyright: `${new Date().getFullYear()} AI Newsletter`,
             language: 'en',
             categories: ['Technology', 'Artificial Intelligence', 'News'],
             pubDate: new Date(),
@@ -75,7 +75,7 @@ app.get('/rss.xml', async (req, res) => {
                 url: `https://news.buzagloidan.com/#${item.id}`,
                 guid: `ainews-en-${item.id}`,
                 categories: ['AI News', 'English'],
-                author: 'AI News Hub',
+                author: 'AI Newsletter',
                 date: new Date(item.created_at)
             });
         });
@@ -105,15 +105,15 @@ app.get('/rss-:lang.xml', async (req, res) => {
         
         // Create language-specific RSS feed
         const feed = new RSS({
-            title: `AI News Hub - ${languageName} AI Updates`,
+            title: `AI Newsletter - ${languageName} AI Updates`,
             description: `Latest AI news updates in ${languageName}`,
             feed_url: `https://news.buzagloidan.com/rss-${lang}.xml`,
             site_url: 'https://news.buzagloidan.com',
             image_url: 'https://news.buzagloidan.com/favicon.png',
             docs: 'https://news.buzagloidan.com',
-            managingEditor: 'Idan Buzaglo',
-            webMaster: 'Idan Buzaglo',
-            copyright: `${new Date().getFullYear()} AI News Hub`,
+            managingEditor: 'news@buzagloidan.com (Idan Buzaglo)',
+            webMaster: 'news@buzagloidan.com (Idan Buzaglo)',
+            copyright: `${new Date().getFullYear()} AI Newsletter`,
             language: lang,
             categories: ['Technology', 'Artificial Intelligence', 'News'],
             pubDate: new Date(),
@@ -132,7 +132,7 @@ app.get('/rss-:lang.xml', async (req, res) => {
                 url: `https://news.buzagloidan.com/#${item.id}`,
                 guid: `ainews-${lang}-${item.id}`,
                 categories: ['AI News', languageName],
-                author: 'AI News Hub',
+                author: 'AI Newsletter',
                 date: new Date(item.created_at)
             });
         });
