@@ -70,6 +70,7 @@ app.get('/rss.xml', async (req, res) => {
         // Add items to RSS feed
         response.data.forEach(item => {
             feed.item({
+                title: null,
                 description: item.content || item.title,
                 date: new Date(item.created_at),
                 guid: `ainews-en-${item.created_at}`
@@ -123,6 +124,7 @@ app.get('/rss-:lang.xml', async (req, res) => {
         // Add items to RSS feed
         response.data.forEach(item => {
             feed.item({
+                title: null,
                 description: item.content || item.title,
                 date: new Date(item.created_at),
                 guid: `ainews-${lang}-${item.created_at}`
