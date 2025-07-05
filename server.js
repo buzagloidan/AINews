@@ -10,8 +10,6 @@ const port = process.env.PORT || 3000;
 // Environment variables for Supabase
 const API_BASE = 'https://kqqnzmgtflzpqwsqsklq.supabase.co/rest/v1';
 const API_KEY = process.env.SUPABASE_API_KEY;
-// New: Read allowed API keys from environment variables
-const ALLOWED_API_KEYS = new Set(process.env.ALLOWED_API_KEYS ? process.env.ALLOWED_API_KEYS.split(',') : []);
 
 if (!API_KEY) {
     console.error('FATAL ERROR: SUPABASE_API_KEY environment variable is not set.');
@@ -27,27 +25,8 @@ const supabaseHeaders = {
 app.use(cors());
 app.use(express.static(__dirname)); // Serve static files from the root directory
 
-// New: API Key authentication middleware
-const apiKeyAuth = (req, res, next) => {
-    // Let requests from our own website pass through without a key
-    if (req.headers.referer && req.headers.referer.includes('news.buzagloidan.com')) {
-        return next();
-    }
-
-    const userApiKey = req.get('X-API-Key');
-    if (ALLOWED_API_KEYS.size > 0) {
-        if (!userApiKey) {
-            return res.status(401).json({ error: 'API Key is required.' });
-        }
-        if (!ALLOWED_API_KEYS.has(userApiKey)) {
-            return res.status(403).json({ error: 'Invalid API Key.' });
-        }
-    }
-    next();
-};
-
-// API proxy endpoint
-app.get('/api/news/:lang', apiKeyAuth, async (req, res) => {
+// Internal API endpoint for website use only
+app.get('/api/news/:lang', async (req, res) => {
     const { lang } = req.params;
     const limit = req.query.limit || 10;
 
@@ -64,13 +43,13 @@ app.get('/api/news/:lang', apiKeyAuth, async (req, res) => {
     }
 });
 
-// RSS feed endpoint
+// RSS feed endpoint - English updates
 app.get('/rss.xml', async (req, res) => {
     try {
-        // Create RSS feed
+        // Create RSS feed for English content
         const feed = new RSS({
-            title: 'AI News Hub - Latest AI Updates',
-            description: 'Real-time AI news updates in Hebrew and English from industry sources',
+            title: 'AI News Hub - English AI Updates',
+            description: 'Latest AI news updates in English from industry sources',
             feed_url: 'https://news.buzagloidan.com/rss.xml',
             site_url: 'https://news.buzagloidan.com',
             image_url: 'https://news.buzagloidan.com/favicon.png',
@@ -84,30 +63,18 @@ app.get('/rss.xml', async (req, res) => {
             ttl: '60'
         });
 
-        // Fetch latest news from both languages
-        const hebrewUrl = `${API_BASE}/ai_news?select=*&order=created_at.desc&limit=20`;
-        const englishUrl = `${API_BASE}/ai_news_english?select=*&order=created_at.desc&limit=20`;
-
-        const [hebrewResponse, englishResponse] = await Promise.all([
-            axios.get(hebrewUrl, { headers: supabaseHeaders }),
-            axios.get(englishUrl, { headers: supabaseHeaders })
-        ]);
-
-        // Combine and sort all news items by date
-        const allNews = [
-            ...hebrewResponse.data.map(item => ({ ...item, language: 'Hebrew' })),
-            ...englishResponse.data.map(item => ({ ...item, language: 'English' }))
-        ].sort((a, b) => new Date(b.created_at) - new Date(a.created_at))
-         .slice(0, 30); // Limit to 30 most recent items
+        // Fetch English news only
+        const url = `${API_BASE}/ai_news_english?select=*&order=created_at.desc&limit=25`;
+        const response = await axios.get(url, { headers: supabaseHeaders });
 
         // Add items to RSS feed
-        allNews.forEach(item => {
+        response.data.forEach(item => {
             feed.item({
-                title: `[${item.language}] ${item.title}`,
+                title: item.title,
                 description: item.content || item.title,
                 url: `https://news.buzagloidan.com/#${item.id}`,
-                guid: `ainews-${item.id}`,
-                categories: ['AI News', item.language],
+                guid: `ainews-en-${item.id}`,
+                categories: ['AI News', 'English'],
                 author: 'AI News Hub',
                 date: new Date(item.created_at)
             });

@@ -1,7 +1,7 @@
 {
   "name": "ainews-main",
   "version": "1.0.0",
-  "description": "AI news aggregator with a backend proxy to protect API keys.",
+  "description": "AI news aggregator with RSS feed distribution.",
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
@@ -10,7 +10,7 @@
   "keywords": [
     "ai",
     "news",
-    "proxy",
+    "rss",
     "supabase"
   ],
   "author": "",

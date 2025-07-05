@@ -6,7 +6,7 @@ A clean, professional interface that displays the latest AI news in Hebrew and E
 
 ##  **Live Website**
 
-Visit: **https://news.buzagloidan.com/**
+Visit: **https://news.buzagloidan.com**
 
 ##  **Features**
 
@@ -17,12 +17,14 @@ Visit: **https://news.buzagloidan.com/**
 -  **Minimalistic design** - Clean black-on-white professional aesthetic
 -  **Real-time stats** - Live count of news items
 -  **Fast loading** - Single HTML file, no dependencies
--  **API Access CTA** - Professional lead generation for premium access
+-  **RSS Feeds** - Subscribe to updates via RSS readers
 
 ##  **Social Links**
 
 -  [WhatsApp Hebrew Channel](https://www.whatsapp.com/channel/0029Vb9SduO9MF8xSjlfrt24)
--  [WhatsApp English Channel](https://t.co/l6KRQJl3aC)
+-  [WhatsApp English Channel](https://www.whatsapp.com/channel/0029VbApNvC6BIEoqbIK581b)
+-  [Telegram Hebrew Channel](https://t.me/buzagloidanhebrew)
+-  [Telegram English Channel](https://t.me/buzagloidanenglish)
 -  [LinkedIn Profile](https://www.linkedin.com/in/buzagloidan/)
 -  [X Profile](https://x.com/buzagloidan)
 
@@ -46,14 +48,25 @@ Telegram Bots  Supabase Edge Functions  PostgreSQL Database  GitHub Pages Websit
 - **Manual refresh**: Press `F5` or `Ctrl+R` for immediate update
 - **Navigation**: Scroll through news items in each section
 - **Social links**: Click to visit WhatsApp channels and social profiles
+- **RSS Subscription**: Click the RSS icon to subscribe to updates in your preferred language
+
+##  **RSS Feeds**
+
+Stay updated with the latest AI news through our RSS feeds:
+
+- **English Updates**: `https://news.buzagloidan.com/rss.xml`
+- **Hebrew Updates**: `https://news.buzagloidan.com/rss-he.xml`
+
+Compatible with all major RSS readers including Feedly, Inoreader, and Apple News.
 
 ##  **Contact**
 
 - **Creator**: Idan Buzaglo
 - **LinkedIn**: [@buzagloidan](https://www.linkedin.com/in/buzagloidan/)
 - **X/Twitter**: [@buzagloidan](https://x.com/buzagloidan)
-- **API Access**: Contact via website for premium API features
+- **RSS Support**: Subscribe to our feeds for the latest updates
 
 ---
 
-** Powered by real-time AI news collection via Telegram bots and Supabase**
+**🚀 Powered by real-time AI news collection via Telegram bots and Supabase**  
+**📡 Subscribe to our RSS feeds for instant AI news updates**
