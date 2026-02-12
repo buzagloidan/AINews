@@ -130,20 +130,6 @@
             margin-bottom: 40px;
         }
 
-        .whatsapp-link a {
-            color: var(--subtle-text-color);
-            text-decoration: none;
-            padding: 8px 12px;
-            border-radius: var(--border-radius);
-            transition: all 0.2s ease-in-out;
-            font-weight: 500;
-        }
-
-        .whatsapp-link a:hover {
-            background: #e9ecef;
-            color: var(--text-color);
-        }
-
         .persistent-social {
             margin-top: 20px;
             display: flex;
@@ -234,7 +220,7 @@
         }
         
         .hidden {
-            display: none;
+            display: none !important;
         }
 
         /* Loading & Error States */
@@ -260,10 +246,6 @@
             }
             .header h1 {
                 font-size: 2.2rem;
-            }
-            .social-links a {
-                display: block;
-                margin: 8px 0;
             }
             .news-container {
                 max-height: 60vh;
@@ -300,19 +282,18 @@
 
         <!-- Social Links -->
         <div class="social-links">
-            <div id="whatsapp-en" class="whatsapp-link">
-                <a href="https://t.me/buzagloidanenglish" target="_blank">Join on Telegram</a>
-            </div>
-            <div id="whatsapp-he" class="whatsapp-link hidden">
-                <a href="https://www.whatsapp.com/channel/0029Vb9SduO9MF8xSjlfrt24" target="_blank">הצטרפו בוואטסאפ</a>
-                <a href="https://t.me/buzagloidanhebrew" target="_blank">הצטרפו בטלגרם</a>
-            </div>
             <div class="persistent-social">
                 <a href="https://www.linkedin.com/in/buzagloidan/" target="_blank" title="LinkedIn Profile">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M20.5 2h-17A1.5 1.5 0 0 0 2 3.5v17A1.5 1.5 0 0 0 3.5 22h17a1.5 1.5 0 0 0 1.5-1.5v-17A1.5 1.5 0 0 0 20.5 2ZM8 19H5v-9h3zM6.5 8.25A1.75 1.75 0 1 1 8.25 6.5 1.75 1.75 0 0 1 6.5 8.25ZM19 19h-3v-4.75c0-1.4-.5-2.25-1.5-2.25S13 12.8 13 14.25V19h-3v-9h3v1.5c.5-.75 1.5-1.5 2.5-1.5s3 1.5 3 4.5z"></path></svg>
                 </a>
                 <a href="https://x.com/buzagloidan" target="_blank" title="X Profile">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"></path></svg>
+                </a>
+                <a id="telegram-link" href="https://t.me/buzagloidanenglish" target="_blank" title="Join on Telegram">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69.01-.03.01-.14-.07-.2-.08-.06-.19-.04-.27-.02-.12.02-1.96 1.25-5.54 3.69-.52.36-1 .53-1.42.52-.47-.01-1.37-.26-2.03-.48-.82-.27-1.47-.42-1.42-.88.03-.24.35-.49.96-.75 3.78-1.65 6.31-2.74 7.58-3.27 3.61-1.51 4.35-1.77 4.84-1.78.11 0 .35.03.5.16.12.1.16.23.18.33.02.11.02.24.01.37z"/></svg>
+                </a>
+                <a id="whatsapp-link" href="https://www.whatsapp.com/channel/0029Vb9SduO9MF8xSjlfrt24" target="_blank" title="Join on WhatsApp" class="hidden">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12.004 2c-5.517 0-9.992 4.475-9.992 9.991 0 1.763.459 3.474 1.33 4.988L2 22l5.139-1.348c1.472.803 3.134 1.228 4.865 1.228h.004c5.517 0 9.992-4.475 9.992-9.991 0-5.517-4.475-9.991-9.992-9.991zm0 1.75c4.544 0 8.242 3.703 8.242 8.241 0 4.539-3.703 8.242-8.241 8.242-1.543 0-3.05-.432-4.357-1.249l-.313-.196-3.235.848.864-3.15-.215-.341c-.892-1.417-1.364-3.056-1.364-4.742-.001-4.542 3.696-8.243 8.241-8.243zm-3.66 3.673c-.201 0-.33.007-.504.02-.174.013-.454.077-.692.338-.238.261-.904.883-.904 2.15s.924 2.49 1.051 2.658c.128.169 1.819 2.778 4.406 3.892.615.265 1.096.423 1.471.542.618.19 1.179.163 1.623.097.495-.074 1.521-.621 1.734-1.221.213-.6.213-1.114.149-1.221-.064-.107-.234-.173-.49-.303s-1.521-.751-1.755-.836-.404-.127-.574.127-.659.836-.808 1.006-.298.19-.553.061-.101-.044-.216-.101c-.422-.211-1.018-.509-1.637-1.06-.481-.428-.805-.957-.899-1.12-.094-.163-.01-.251.118-.381.116-.117.255-.297.383-.446.128-.149.17-.255.255-.426.085-.17.042-.319-.021-.448-.064-.13-.574-1.385-.787-1.895-.207-.5-.425-.431-.574-.439l-.49-.007z"/></svg>
                 </a>
                 <a id="rss-feed-link" href="/rss.xml" target="_blank" title="RSS Feed - English Updates">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M6.503 20.752c0 1.794-1.456 3.248-3.251 3.248S0 22.546 0 20.752s1.456-3.248 3.252-3.248 3.251 1.454 3.251 3.248zM1.677 6.082v4.148c6.988 0 12.654 5.666 12.654 12.654h4.148C18.479 15.003 11.497 8.021 3.616 6.082H1.677zM1.677.014v4.148C14.598 4.162 24 13.564 24 26.485h4.148C28.148 15.896 16.267 4.014 3.677.014H1.677z"/></svg>
@@ -431,8 +412,8 @@
             const toggle = document.getElementById('languageToggle');
             const englishView = document.getElementById('english-view');
             const hebrewView = document.getElementById('hebrew-view');
-            const whatsappEn = document.getElementById('whatsapp-en');
-            const whatsappHe = document.getElementById('whatsapp-he');
+            const telegramLink = document.getElementById('telegram-link');
+            const whatsappLink = document.getElementById('whatsapp-link');
             const rssLink = document.getElementById('rss-feed-link');
 
             // Load Hebrew news only when it's first switched to
@@ -442,11 +423,15 @@
                 if (this.checked) { // Hebrew selected
                     englishView.classList.add('hidden');
                     hebrewView.classList.remove('hidden');
-                    whatsappEn.classList.add('hidden');
-                    whatsappHe.classList.remove('hidden');
-                    // Update RSS link for Hebrew
+                    whatsappLink.classList.remove('hidden');
+                    
+                    // Update links for Hebrew
+                    telegramLink.href = 'https://t.me/buzagloidanhebrew';
+                    telegramLink.title = 'הצטרפו בטלגרם';
+                    whatsappLink.title = 'הצטרפו בוואטסאפ';
                     rssLink.href = '/rss-he.xml';
                     rssLink.title = 'RSS Feed - Hebrew Updates';
+                    
                     if (!hebrewLoaded) {
                         loadHebrewNews();
                         hebrewLoaded = true;
@@ -454,9 +439,11 @@
                 } else { // English selected
                     englishView.classList.remove('hidden');
                     hebrewView.classList.add('hidden');
-                    whatsappEn.classList.remove('hidden');
-                    whatsappHe.classList.add('hidden');
-                    // Update RSS link for English
+                    whatsappLink.classList.add('hidden');
+                    
+                    // Update links for English
+                    telegramLink.href = 'https://t.me/buzagloidanenglish';
+                    telegramLink.title = 'Join on Telegram';
                     rssLink.href = '/rss.xml';
                     rssLink.title = 'RSS Feed - English Updates';
                 }
@@ -485,4 +472,4 @@
         });
     </script>
 </body>
-</html> 
+</html>
