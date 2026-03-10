@@ -23,7 +23,7 @@ const supabaseHeaders = {
 
 // Middleware
 app.use(cors());
-app.use(express.static(__dirname)); // Serve static files from the root directory
+app.use(express.static(__dirname, { index: false })); // Serve static files but don't auto-serve index.html
 
 // Internal API endpoint for website use only
 app.get('/api/news/:lang', async (req, res) => {
@@ -143,11 +143,11 @@ app.get('/rss-:lang.xml', async (req, res) => {
     }
 });
 
-// Serve the main HTML file for the root path
+// Redirect root to WhatsApp channel
 app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, 'index.html'));
+    res.redirect(301, 'https://www.whatsapp.com/channel/0029Vb9SduO9MF8xSjlfrt24');
 });
 
 app.listen(port, '0.0.0.0', () => {
     console.log(`Server is running on port ${port}`);
-}); 
+});
